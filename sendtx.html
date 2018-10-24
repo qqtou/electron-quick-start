@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Seele Mist!</title>
+  </head>
+  <body>
+    <h1>seele mist</h1>
+    <h2>交易</h2>
+    <span>publicKey:</span><input type="text" id="txpublicKey" value="0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21">
+    <br>
+    <span>privateKey:</span><input type="text" id="privateKey" value="0xf65e40c6809643b25ce4df33153da2f3338876f181f83d2281c6ac4a987b1479">
+    <br>
+    <span>to:</span><input type="text" id="to" value="0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21">
+    <br>
+    <span>amount:</span><input type="text" id="amount" value="1">
+    <br>
+    <span>price:</span><input type="text" id="price" value="1">
+    <br>
+    <input id="sendtx" type="button" value="发送交易">
+    <br>
+    <input id="txresult" type="text">
+    <script>
+      // You can also require other files to run in this process
+      require('./sendtx.js')
+    </script>
+  </body>
+</html>
