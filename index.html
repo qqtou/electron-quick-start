@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Seele Mist!</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>seele mist</h1>
-    <br >
-    <span>分片：</span><input type="text" id="shardnum">
-    <input type="button" value="创建账户" id="createKey">
     <br>
-    <span id="address"></span>
-    <br >
-    <span>公钥：</span><input type="text" id="publicKey" ><input type="button" value="提交" id="btnGetBalance">
-    <br >
-    <span id="balance">余额：</span>
-    <br >
-    <br >
-    <h2>交易</h2>
-    <span>publicKey:</span><input type="text" id="txpublicKey" value="0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21">
+    <a href="./src/html/createAccount.html">创建账户</a>
     <br>
-    <span>privateKey:</span><input type="text" id="privateKey" value="0xf65e40c6809643b25ce4df33153da2f3338876f181f83d2281c6ac4a987b1479">
+    <a href="./src/html/getBalance.html">查询余额</a>
     <br>
-    <span>to:</span><input type="text" id="to" value="0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21">
-    <br>
-    <span>amount:</span><input type="text" id="amount" value="1">
-    <br>
-    <span>price:</span><input type="text" id="price" value="1">
-    <br>
-    <input id="sendtx" type="button" value="发送交易">
-    <br>
-    <input id="txresult" type="text">
+    <a href="./src/html/sendtx.html">发送交易</a>
     <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+        // You can also require other files to run in this process
+        require('./renderer.js')
     </script>
-  </body>
+</body>
+
 </html>
