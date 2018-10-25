@@ -15,8 +15,9 @@ function sendtx() {
     var to = document.getElementById("to");
     var amount = document.getElementById("amount");
     var price = document.getElementById("price");
+    var accountpassWord = document.getElementById("accountpassWord")
 
-    seeleClient.sendtx(publicKey.value, to.value, amount.value, price.value, function(err, result, hash) {
+    seeleClient.sendtx(publicKey.value, accountpassWord.value, to.value, amount.value, price.value, function(err, result, hash) {
         if (err) {
             alert(err)
         } else {

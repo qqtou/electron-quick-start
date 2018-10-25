@@ -134,7 +134,7 @@ function seeleClient() {
         }
     };
 
-    this.sendtx = function(publicKey, to, amount, price, callBack) {
+    this.sendtx = function(publicKey, passWord, to, amount, price, callBack) {
         var nonce = this.client.sendSync("getAccountNonce", publicKey);
 
         var rawTx = {
@@ -147,7 +147,7 @@ function seeleClient() {
             "Timestamp": 0,
             "Payload": ""
         }
-        this.DecKeyFile(publicKey, "123").then((data) => {
+        this.DecKeyFile(publicKey, passWord).then((data) => {
             var output = `${data}`
             var privatekey = this.ParsePrivateKey(output);
             var tx = this.client.generateTx(privatekey, rawTx);
