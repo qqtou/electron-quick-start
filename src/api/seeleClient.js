@@ -15,7 +15,7 @@ function seeleClient() {
 
     this.accountPath = os.homedir() + "/.seeleMist/account/"
 
-    this.binPath = "./cmd/win32/client.exe";
+    this.binPath = os.homedir() + "/.seeleMist/cmd/client.exe";
 
     this.accountArray = [];
 

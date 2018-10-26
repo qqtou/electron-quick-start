@@ -30,6 +30,7 @@ function createWindow() {
     })
 
     const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
+    mainWindow.webContents.openDevTools();
     Menu.setApplicationMenu(menu)
 }
 
