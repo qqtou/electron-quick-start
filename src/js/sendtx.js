@@ -1,9 +1,9 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
-var seeleClient = require('../api/seeleClient');
+var SeeleClient = require('../api/seeleClient');
 
-seeleClient = new seeleClient();
+seeleClient = new SeeleClient();
 
 onload = function() {
     document.getElementById("sendtx").addEventListener("click", sendtx);
@@ -28,7 +28,8 @@ function sendtx() {
 
 function gettxbyhash() {
     var txresult = document.getElementById("txresult")
-    seeleClient.gettxbyhash(txresult.innerHTML, function(err, info) {
+    var publicKey = document.getElementById("txpublicKey");
+    seeleClient.gettxbyhash(txresult.innerHTML, publicKey.value, function(err, info) {
         if (err) {
             alert(err)
         } else {

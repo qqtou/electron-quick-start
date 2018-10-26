@@ -29,8 +29,8 @@ function createWindow() {
         mainWindow = null
     })
 
-    // const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
-    // Menu.setApplicationMenu(menu)
+    const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
+    Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished

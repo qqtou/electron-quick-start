@@ -7,30 +7,21 @@ var os = require("os")
 
 const Q = require('bluebird');
 const spawn = require('child_process').spawn;
-
+const spawnSync = require('child_process').spawnSync;
 
 function seeleClient() {
-    this.client = new seelejs();
+    this.client1 = new seelejs("http://106.75.86.211:8037");
+    this.client2 = new seelejs("http://106.75.86.211:8038");
 
-    this.configPath = os.homedir() + "/.seeleMist/"
+    this.accountPath = os.homedir() + "/.seeleMist/account/"
 
-    this.accountPath = this.configPath + "account/";
-
-    this.binPath = this.configPath + "cmd/client.exe";
+    this.binPath = "./cmd/win32/client.exe";
 
     this.accountArray = [];
 
     this.init = function() {
-        if (!fs.existsSync(this.configPath)) {
-            fs.mkdirSync(this.configPath)
-        }
-
         if (!fs.existsSync(this.accountPath)) {
             fs.mkdirSync(this.accountPath)
-        }
-
-        if (!fs.existsSync(this.configPath + "cmd")) {
-            fs.mkdirSync(this.configPath + "cmd")
         }
     };
 
@@ -64,8 +55,23 @@ function seeleClient() {
         });
     };
 
+    this.getshardnum = function(publicKey) {
+        var args = [
+            'getshardnum',
+        ];
+        args.push('--account', publicKey)
+
+        const proc = spawnSync(this.binPath, args);
+
+        var info = `${proc.stdout}`
+        if (info == "") {
+            var err = `${proc.stderr}`
+            return err
+        }
+        return info.replace("shard number:", "").trim()
+    };
+
     this.keyStore = function(fileName, privatekey, passWord) {
-        this.init();
         return new Q((resolve, reject) => {
             var args = [
                 'savekey',
@@ -115,27 +121,44 @@ function seeleClient() {
                 reject(data)
             });
         });
-    }
+    };
 
     this.accountList = function() {
-        this.init();
         if (fs.existsSync(this.accountPath)) {
             this.accountArray = fs.readdirSync(this.accountPath)
         } else {
             console.log(this.accountPath + "  Not Found!");
         }
-    }
+    };
 
     this.getBalance = function(publicKey, callBack) {
         try {
-            this.client.getBalance(publicKey, callBack);
+            var numberInfo = this.getshardnum(publicKey)
+            if (numberInfo == "1") {
+                this.client1.getBalance(publicKey, callBack);
+            } else if (numberInfo == "2") {
+                this.client2.getBalance(publicKey, callBack);
+            } else {
+                alert(numberInfo)
+            }
         } catch (e) {
             console.error("no node started in local host")
         }
     };
 
     this.sendtx = function(publicKey, passWord, to, amount, price, callBack) {
-        var nonce = this.client.sendSync("getAccountNonce", publicKey);
+        var client
+        var numberInfo = this.getshardnum(publicKey)
+        if (numberInfo == "1") {
+            client = this.client1;
+        } else if (numberInfo == "2") {
+            client = this.client2;
+        } else {
+            alert(numberInfo)
+            return
+        }
+
+        var nonce = client.sendSync("getAccountNonce", publicKey);
 
         var rawTx = {
             "From": publicKey,
@@ -150,16 +173,25 @@ function seeleClient() {
         this.DecKeyFile(publicKey, passWord).then((data) => {
             var output = `${data}`
             var privatekey = this.ParsePrivateKey(output);
-            var tx = this.client.generateTx(privatekey, rawTx);
-            this.client.addTx(tx, function(err, info) {
+            var tx = client.generateTx(privatekey, rawTx);
+            client.addTx(tx, function(err, info) {
                 callBack(err, info, tx.Hash);
             });
         });
-
     };
 
-    this.gettxbyhash = function(hash, callBack) {
-        this.client.getTransactionByHash(hash, callBack);
+    this.gettxbyhash = function(hash, publickey, callBack) {
+        var client
+        var numberInfo = this.getshardnum(publickey)
+        if (numberInfo == "1") {
+            client = this.client1;
+        } else if (numberInfo == "2") {
+            client = this.client2;
+        } else {
+            alert(numberInfo)
+            return
+        }
+        client.getTransactionByHash(hash, callBack);
     }
 
     this.ParsePublicKey = function(input) {
