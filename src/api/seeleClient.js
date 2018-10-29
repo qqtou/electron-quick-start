@@ -15,12 +15,20 @@ function seeleClient() {
 
     this.accountPath = os.homedir() + "/.seeleMist/account/"
 
-    this.binPath = os.homedir() + "/.seeleMist/cmd/client.exe";
+    this.binPath = function() {
+        var clientpath = `${__dirname}`;
+        if (clientpath.indexOf("app.asar") > 0) {
+            return clientpath.substring(0, clientpath.indexOf("app.asar")) + "/../client.exe";
+        } else {
+            return "./cmd/win32/client.exe"
+        }
+    };
 
     this.accountArray = [];
 
     this.init = function() {
         if (!fs.existsSync(this.accountPath)) {
+            fs.mkdirSync(os.homedir() + "/.seeleMist/")
             fs.mkdirSync(this.accountPath)
         }
     };
@@ -36,7 +44,7 @@ function seeleClient() {
                     args.push('--shard', shardnum)
                 }
 
-                const proc = spawn(this.binPath, args);
+                const proc = spawn(this.binPath(), args);
 
                 proc.stdout.on('data', data => {
                     var output = `${data}`
@@ -60,8 +68,8 @@ function seeleClient() {
             'getshardnum',
         ];
         args.push('--account', publicKey)
-
-        const proc = spawnSync(this.binPath, args);
+        console.info(this.binPath())
+        const proc = spawnSync(this.binPath(), args);
 
         var info = `${proc.stdout}`
         if (info == "") {
@@ -84,7 +92,7 @@ function seeleClient() {
             args.push("--privatekey", privatekey)
             args.push("--file", filePath)
 
-            const proc = spawn(this.binPath, args);
+            const proc = spawn(this.binPath(), args);
 
             proc.stdout.on('data', data => {
                 proc.stdin.write(passWord + '\n');
@@ -107,7 +115,7 @@ function seeleClient() {
 
             args.push("--file", filePath)
 
-            const proc = spawn(this.binPath, args);
+            const proc = spawn(this.binPath(), args);
 
             proc.stdout.on('data', data => {
                 proc.stdin.write(passWord + '\n');
