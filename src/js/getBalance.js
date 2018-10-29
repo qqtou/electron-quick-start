@@ -6,7 +6,7 @@ var SeeleClient = require('../api/seeleClient');
 seeleClient = new SeeleClient();
 
 onload = function() {
-    document.getElementById("btnGetBalance").addEventListener("click", getBalance);
+    //document.getElementById("btnGetBalance").addEventListener("click", getBalance);
     loadAccount();
 }
 
@@ -14,11 +14,32 @@ function loadAccount() {
     seeleClient.accountList();
 
     var accountlist = document.getElementById("accountlist");
-    var accountHTML = ""
+
     for (var item in seeleClient.accountArray) {
-        accountHTML += "<span>" + seeleClient.accountArray[item] + `</span>` + "<br>";
+        seeleClient.getBalance(seeleClient.accountArray[item].trim(), function(err, info) {
+            if (err) {
+                try {
+                    var msg = JSON.parse(err.message);
+                    alert(msg.error.message);
+                } catch (e) {
+                    alert(err.message);
+                }
+            } else {
+                var accountHTML = ""
+                accountHTML += `<div class="accountFor">`;
+                accountHTML += `<span class="accountImg"><img src="image/people.png"></span>`;
+                accountHTML += `<ul>`;
+                accountHTML += `<li>Account</li>`;
+                accountHTML += `<li><span>` + info.Balance + `</span> seele</li>`;
+                accountHTML += `<li>` + seeleClient.accountArray[item] + `</li>`;
+                accountHTML += `</ul>`;
+                accountHTML += `</div>`;
+                accountlist.innerHTML += accountHTML
+            }
+        });
+
     }
-    accountlist.innerHTML = accountHTML
+
 }
 
 function getBalance() {

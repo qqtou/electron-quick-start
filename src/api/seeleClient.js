@@ -154,6 +154,21 @@ function seeleClient() {
         }
     };
 
+    this.getBalanceSync = function(publicKey) {
+        try {
+            var numberInfo = this.getshardnum(publicKey)
+            if (numberInfo == "1") {
+                return this.client1.sendSync("getBalance", publicKey);
+            } else if (numberInfo == "2") {
+                return this.client2.sendSync("getBalance", publicKey);
+            } else {
+                alert(numberInfo)
+            }
+        } catch (e) {
+            console.error("no node started in local host")
+        }
+    }
+
     this.sendtx = function(publicKey, passWord, to, amount, price, callBack) {
         var client
         var numberInfo = this.getshardnum(publicKey)
