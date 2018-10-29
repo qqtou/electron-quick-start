@@ -5,6 +5,7 @@ const Menu = electron.Menu
 const app = electron.app
 var mainMenu = require("./menu")
 
+//var SeeleClient = require('./src/api/seeleClient');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,7 +13,7 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 800, height: 600 })
+    mainWindow = new BrowserWindow({ width: 950, height: 700, icon: './seeleMist.ico' })
 
     // and load the index.html of the app.
     mainWindow.loadFile('index.html')
@@ -29,9 +30,12 @@ function createWindow() {
         mainWindow = null
     })
 
-    const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
-    mainWindow.webContents.openDevTools();
-    Menu.setApplicationMenu(menu)
+    // const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
+    // mainWindow.webContents.openDevTools();
+    // Menu.setApplicationMenu(menu)
+
+    // sc = new SeeleClient();
+    // sc.init()
 }
 
 // This method will be called when Electron has finished
