@@ -4,18 +4,109 @@
 <head>
     <meta charset="UTF-8">
     <title>Seele Mist!</title>
+    <style>
+        body {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            background: url(image/head.jpg) no-repeat;
+            background-position: center top;
+            background-size: 800px auto;
+        }
+        
+        a {
+            font-size: 16px;
+            color: teal;
+            width: 100%;
+            list-style: none;
+            float: left;
+            font-weight: bold;
+            margin: 220px 0 0 50px;
+        }
+        
+        #accountlist {
+            width: 100%;
+            float: left;
+            margin: 20px 0 0 50px;
+        }
+        
+        .accountFor {
+            width: 50%;
+            float: left;
+            margin-top: 20px;
+        }
+        
+        .accountImg img {
+            width: 60px;
+            height: 60px;
+            float: left;
+            border-radius: 50px;
+        }
+        
+        .accountFor ul {
+            float: left;
+            list-style: none;
+            padding: 0;
+            margin: 0 15px;
+        }
+        
+        .accountFor ul li {
+            width: 100%;
+            float: left;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .accountFor ul li:nth-child(1) {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .accountFor ul li:nth-child(2) {
+            font-size: 14px;
+            color: #333;
+            margin-top: 3px;
+        }
+        
+        .accountFor ul li:nth-child(3) {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .addAccount {
+            width: 183px;
+            height: 40px;
+        }
+        
+        .addAccount a {
+            margin: 40px 0 0 60px;
+        }
+        
+        p {
+            width: calc(100% - 80px);
+            float: left;
+            line-height: 25px;
+            padding: 20px 0px 0 40px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>seele mist</h1>
+    <!-- <h1>seele mist</h1> -->
     <br>
-    <a href="../../index.html">返回主页</a>
+    <a href="../../index.html">Back To Home</a>
     <br>
-    <div id="accountlist"></div>
+    <div id="accountlist">
+
+    </div>
+    <div class="addAccount">
+        <a href="createAccount.html"><img src="image/add.png"></a>
+    </div>
+    <p>Accounts are password protected keys that can hold seele. They can control contracts, but can't display incoming transactions.</p>
     <br>
-    <span>公钥：</span><input type="text" id="publicKey"><input type="button" value="提交" id="btnGetBalance">
+    <!-- <span class="keyfile">公钥：</span><input type="text" id="publicKey"><input type="button" value="提交" id="btnGetBalance"> -->
     <br>
-    <span id="balance"></span>
+    <!-- <span id="balance"></span> -->
     <script>
         // You can also require other files to run in this process
         require('../js/getBalance.js')
