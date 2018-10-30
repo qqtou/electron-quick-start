@@ -1,0 +1,77 @@
+body {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(image/head.jpg) no-repeat;
+    background-position: center top;
+    background-size: 800px auto;
+}
+
+a {
+    font-size: 16px;
+    color: teal;
+    width: 100%;
+    list-style: none;
+    float: left;
+    font-weight: bold;
+    margin: 220px 0 0 50px;
+}
+
+.form {
+    width: 100%;
+    float: left;
+    margin: 20px 0 0 50px;
+}
+
+.name,
+.password {
+    width: 120px;
+    float: left;
+    font-size: 16px;
+    color: teal;
+    /* font-weight: bold; */
+    line-height: 30px;
+}
+
+#shardnum,
+#passWord {
+    width: 200px;
+    border: 1px solid teal;
+    border-radius: 4px;
+    height: 28px;
+}
+
+#shardnum {
+    height: 32px;
+    width: 201px;
+}
+
+.password,
+#passWord {
+    margin-top: 15px;
+}
+
+#passWord {
+    padding-left: 10px;
+}
+
+#createKey {
+    border: none;
+    border-radius: 4px;
+    background: teal;
+    color: #fff;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 0 0 0px;
+}
+
+#address,
+#filepath {
+    width: calc(100% - 80px);
+    float: left;
+    line-height: 25px;
+    padding: 20px 0px 0 40px;
+}
