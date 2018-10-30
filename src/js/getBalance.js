@@ -27,7 +27,7 @@ function loadAccount() {
             } else {
                 var accountHTML = ""
                 accountHTML += `<div class="accountFor">`;
-                accountHTML += `<span class="accountImg"><img src="image/people.png"></span>`;
+                accountHTML += `<span class="accountImg"><img src="../img/people.png"></span>`;
                 accountHTML += `<ul>`;
                 accountHTML += `<li>Account</li>`;
                 accountHTML += `<li><span>` + info.Balance + `</span> seele</li>`;
