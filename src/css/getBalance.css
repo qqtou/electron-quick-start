@@ -2,7 +2,7 @@ body {
     width: 800px;
     height: 600px;
     margin: 0 auto;
-    background: url(image/head.jpg) no-repeat;
+    background: url(../img/head.jpg) no-repeat;
     background-position: center top;
     background-size: 800px auto;
 }
