@@ -1,0 +1,46 @@
+
+h1.note{
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 80px 0 0 60px;
+}
+p.info {
+    width: calc(100% - 60px);
+    float: left;
+    font-size: 14px;
+    line-height: 25px;
+    margin: 0;
+    padding: 30px 0px 50px 60px;
+    color: #999;
+}
+p.info span{
+    color: #2eb3f3;
+}
+
+/* dl */
+.icon-list{
+    width: 100%;
+    float: left;
+    margin: 80px 0 0 55px;
+}
+.icon-list dl{
+    width: 120px;
+    float: left;
+    margin-left: 80px;
+    font-size: 14px;
+    color: #76a6d2;
+}
+.icon-list dl dt{
+    width: 50px;
+    height: 50px;
+    padding: 0 25px 12px 25px;
+}
+.icon-list dl dd{
+    text-align: left;
+    margin: 0;
+    white-space: nowrap;
+}
