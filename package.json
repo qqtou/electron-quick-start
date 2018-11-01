@@ -4,7 +4,8 @@
     "description": "A minimal Electron application",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "packager": "electron-packager . seeleMist --all --out ./OutApp --version 1.4.0 --overwrite --icon=./app/img/icon/icon.ico"
     },
     "repository": "https://github.com/electron/electron-quick-start",
     "keywords": [

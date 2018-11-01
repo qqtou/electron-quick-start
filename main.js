@@ -13,14 +13,14 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 950, height: 700, icon: './seeleMist.ico' })
+    mainWindow = new BrowserWindow({ width: 1280, height: 950, icon: './seeleMist.ico' })
 
     // and load the index.html of the app.
     mainWindow.loadFile('index.html')
 
 
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    //Open the DevTools.
+    //mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
@@ -30,9 +30,9 @@ function createWindow() {
         mainWindow = null
     })
 
-    // const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
-    // mainWindow.webContents.openDevTools();
-    // Menu.setApplicationMenu(menu)
+    //const menu = Menu.buildFromTemplate(mainMenu.mainMenu)
+    //mainWindow.webContents.openDevTools();
+    //Menu.setApplicationMenu(menu)
 
     // sc = new SeeleClient();
     // sc.init()
