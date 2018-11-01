@@ -4,47 +4,59 @@ body {
     margin: 0;
 }
 
+
 /* header */
-.header{
+
+.header {
     width: 100%;
     height: 80px;
     background: #fff;
 }
-.head-main,.main{
+
+.head-main,
+.main {
     width: 1180px;
     margin: 0 auto;
     padding-bottom: 40px;
 }
-.logo{
+
+.logo {
     width: 110px;
     height: 28px;
     float: left;
     margin: 26px 0 0 0;
 }
-.get-balance{
+
+.get-balance {
     width: auto;
     float: right;
     font-size: 16px;
     color: #666;
     margin: 26px 0 0 0;
 }
-.get-balance span:nth-child(2){
+
+.get-balance span:nth-child(2) {
     font-size: 30px;
     color: #2c9ae3;
     margin: 0 10px 0 20px;
 }
 
+
 /* account */
+
 #accountlist {
     width: 100%;
     float: left;
     margin: 0px 0 0 20px;
 }
-#tabs-1 h1,#tabs-1 h1{
+
+#tabs-1 h1,
+#tabs-1 h1 {
     font-size: 24px;
     color: #333;
     padding: 0 0 0 20px;
 }
+
 #tabs-1 .accountFor {
     width: 33%;
     float: left;
@@ -100,56 +112,69 @@ body {
 
 
 /* send */
-#tabs-2{
+
+#tabs-2 {
     padding: 20px 0px 0 20px;
     color: #666;
 }
-form{
+
+form {
     display: block;
     float: left;
     padding: 0 0 50px 0;
 }
-#tab ul.send-list li:nth-child(1),#tab ul.send-list li:nth-child(2){
+
+#tab ul.send-list li:nth-child(1),
+#tab ul.send-list li:nth-child(2) {
     margin-left: unset;
     background: unset;
 }
-.send-title{
+
+.send-title {
     font-size: 30px;
     margin: 0;
     padding: 0;
 }
-#tabs-2 .send-list{
+
+#tabs-2 .send-list {
     font-size: 14px;
     color: #666;
 }
-#tabs-2 .send-list li{
+
+#tabs-2 .send-list li {
     width: 510px;
     float: left;
     display: inline-table;
 }
-#tabs-2 .send-list li:nth-child(odd){
+
+#tabs-2 .send-list li:nth-child(odd) {
     margin-right: 80px;
     margin-bottom: 15px;
 }
-#tabs-2 .send-list li input{
+
+#tabs-2 .send-list li input {
     width: 498px;
     height: 30px;
     padding-left: 10px;
-    border: 1px solid rgba(153,153,153,1);
-    background:#FAFAFA;
+    border: 1px solid rgba(153, 153, 153, 1);
+    background: #FAFAFA;
     border-radius: 2px;
     margin-top: 10px;
 }
-#tabs-2 .send-list li:nth-child(5){
+
+#tabs-2 .send-list li:nth-child(5) {
     width: 100%;
     margin: 0;
     height: 21px;
     line-height: 21px;
 }
-#tabs-2 .send-list li:nth-child(5) span,#tabs-2 .send-list li:nth-child(5) img{
+
+#tabs-2 .send-list li:nth-child(5) span,
+#tabs-2 .send-list li:nth-child(5) img {
     float: left;
 }
-#tabs-2 .send-list li:nth-child(5) span{
+
+#tabs-2 .send-list li:nth-child(5) span {
     width: 348px;
     padding: 0 10px 15px 10px;
     line-height: 21px;
@@ -157,7 +182,8 @@ form{
     text-overflow: ellipsis;
     text-align: right;
 }
-#tabs-2 .send-list li:nth-child(6){
+
+#tabs-2 .send-list li:nth-child(6) {
     width: calc(100% - 40px);
     height: 21px;
     line-height: 21px;
@@ -165,13 +191,16 @@ form{
     padding-bottom: 20px;
     border-bottom: 1px solid #DCDFE6;
 }
-#tabs-2 .send-list li:nth-child(6) span{
+
+#tabs-2 .send-list li:nth-child(6) span {
     color: #1973AF;
 }
-.progress-title{
+
+.progress-title {
     font-size: 16px;
 }
-.progress{
+
+.progress {
     width: 500px;
     float: left;
     background: #DEDEDE;
@@ -179,37 +208,44 @@ form{
     border: none;
     margin: 25px 0 0 10px;
 }
-#tabs-2 .progress ul{
+
+#tabs-2 .progress ul {
     width: 100%;
     float: left;
     margin-top: 30px;
 }
-#tabs-2 .progress ul li{
+
+#tabs-2 .progress ul li {
     width: auto;
     font-size: 14px;
 }
-#tabs-2 .progress ul li:nth-child(1){
+
+#tabs-2 .progress ul li:nth-child(1) {
     float: left;
     margin-left: unset;
     background: unset;
 }
-#tabs-2 .progress ul li:nth-child(2){
+
+#tabs-2 .progress ul li:nth-child(2) {
     float: right;
     margin-left: unset;
     background: unset;
     text-align: right;
 }
-.progress-info{
+
+.progress-info {
     width: 445px;
     font-size: 16px;
     float: right;
     line-height: 30px;
     margin: 0;
 }
-.progress-info span{
+
+.progress-info span {
     color: #4A91C0;
 }
-.total{
+
+.total {
     width: calc(100% - 40px);
     float: left;
     padding-bottom: 15px;
@@ -218,15 +254,18 @@ form{
     border-top: 1px solid #DCDFE6;
     border-bottom: 1px solid #DCDFE6;
 }
-.total dt{
+
+.total dt {
     width: 100%;
     padding: 15px 0;
 }
-.total dd{
+
+.total dd {
     width: 100%;
     margin: 0;
 }
-.send{
+
+.send {
     width: 170px;
     height: 40px;
     background: #1973AF;
@@ -237,10 +276,12 @@ form{
     float: left;
     line-height: 40px;
     margin-top: 15px;
+    cursor: pointer;
 }
 
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
     width: 20px;
     height: 20px;
     background: #666;
@@ -248,7 +289,9 @@ form{
     outline: none;
     border: none;
 }
-.ui-state-focus,.ui-widget-content .ui-state-focus{
+
+.ui-state-focus,
+.ui-widget-content .ui-state-focus {
     width: 20px;
     height: 20px;
     background: #0073ea;

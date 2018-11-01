@@ -102,18 +102,18 @@ input,select{
 }
 
 .hideShowPassword-toggle {
-    background-image: url(../img/wink.svg);
+    background-image: url(../img/eye.png);
     background-position: 0 center;
     background-repeat: no-repeat;
     cursor: pointer;
     overflow: hidden;
     text-indent: -9999em;
-    width: 44px;
+    width: 30px;
     position: absolute;
     margin-top: -27px;
-    margin-left: 293px;
+    margin-left: 305px;
     user-select: none;
 }
 .hideShowPassword-toggle-hide {
-    background-position: -44px center;
+    background-position: -40px center;
 }
