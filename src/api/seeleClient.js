@@ -68,7 +68,6 @@ function seeleClient() {
             'getshardnum',
         ];
         args.push('--account', publicKey)
-        console.info(this.binPath())
         const proc = spawnSync(this.binPath(), args);
 
         var info = `${proc.stdout}`
@@ -193,6 +192,7 @@ function seeleClient() {
             "Timestamp": 0,
             "Payload": ""
         }
+
         this.DecKeyFile(publicKey, passWord).then((data) => {
             var output = `${data}`
             var privatekey = this.ParsePrivateKey(output);
