@@ -5,23 +5,44 @@ var SeeleClient = require('../api/seeleClient');
 
 seeleClient = new SeeleClient();
 
-onload = function() {
-    document.getElementById("sendtx").addEventListener("click", sendtx);
-    document.getElementById("btn_gettx").addEventListener("click", gettxbyhash);
+// onload = function() {
+//     document.getElementById("sendtx").addEventListener("click", sendtx);
+//     document.getElementById("btn_gettx").addEventListener("click", gettxbyhash);
+// }
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            oldonload();
+            func();
+        }
+    }
 }
+addLoadEvent(function() {
+    console.info("==========23333333333==111111==========")
+    document.getElementById("sendtx").addEventListener("click", sendtx);
+    //document.getElementById("btn_gettx").addEventListener("click", gettxbyhash);
+})
 
 function sendtx() {
     var publicKey = document.getElementById("txpublicKey");
     var to = document.getElementById("to");
     var amount = document.getElementById("amount");
-    var price = document.getElementById("price");
+    //var price = document.getElementById("price");
     var accountpassWord = document.getElementById("accountpassWord")
 
-    seeleClient.sendtx(publicKey.value, accountpassWord.value, to.value, amount.value, price.value, function(err, result, hash) {
+    layer.load(0, { shade: false });
+
+    seeleClient.sendtx(publicKey.value, accountpassWord.value, to.value, amount.value, "2000", function(err, result, hash) {
+        layer.closeAll();
         if (err) {
             alert(err)
         } else {
-            txresult.innerHTML = hash
+            console.info(hash)
+            alert(hash)
+                //txresult.innerHTML = hash
         }
     });
 }

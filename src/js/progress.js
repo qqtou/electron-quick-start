@@ -7,8 +7,10 @@
                 var ident = this.id || this.className
             }
         })
-        $('.progress')
-            .slider({
-            })
+        $('.progress').slider().slider({
+            stop: function (event, ui) {
+                console.log(ui.value) // Gets the value of the current progress bar
+            }
+        }).slider('float')
     })
 }(jQuery))
