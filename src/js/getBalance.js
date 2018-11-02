@@ -40,7 +40,7 @@ function loadAccount() {
                 }
             } else {
                 var accountHTML = ""
-                accountHTML += `<div class="accountFor">`;
+                accountHTML += `<div class="accountFor" onclick="ToAccountInfo('` + String(info.Account) + `',` + info.Balance / 100000000 + `)">`;
                 accountHTML += `<span class="accountImg"><img src="./src/img/Headportrait.png"></span>`;
                 accountHTML += `<ul>`;
                 accountHTML += `<li>Account</li>`;

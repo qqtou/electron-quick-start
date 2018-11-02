@@ -5,7 +5,7 @@
     "main": "main.js",
     "scripts": {
         "start": "electron .",
-        "packager": "electron-packager . seeleMist --all --out ./OutApp --version 1.4.0 --overwrite --icon=./app/img/icon/icon.ico"
+        "packager": "electron-packager . seeleMist --all --out ./OutApp --version v3.0.4 --overwrite --icon=seeleMist.ico"
     },
     "repository": "https://github.com/electron/electron-quick-start",
     "keywords": [

@@ -21,7 +21,6 @@ function addLoadEvent(func) {
     }
 }
 addLoadEvent(function() {
-    console.info("==========23333333333==111111==========")
     document.getElementById("sendtx").addEventListener("click", sendtx);
     //document.getElementById("btn_gettx").addEventListener("click", gettxbyhash);
 })
