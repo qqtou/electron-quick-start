@@ -20,7 +20,7 @@ function seeleClient() {
         if (clientpath.indexOf("app.asar") > 0) {
             return clientpath.substring(0, clientpath.indexOf("app.asar")) + "/../client.exe";
         } else {
-            return "./cmd/win32/client.exe"
+            return "./cmd/win32/client"
         }
     };
 
