@@ -21,11 +21,11 @@ $(function($) {
         }
     })
 
-    // add account
-    $('.add-account').click(function() {
-        $('.create-account').show()
-        $('.dask').show()
-    })
+    // // add account
+    // $('.add-account').click(function() {
+    //     $('.create-account').show()
+    //     $('.dask').show()
+    // })
 
     // cancel account
     $('#cancel').click(function() {
@@ -33,6 +33,12 @@ $(function($) {
         $('.dask').hide()
     })
 })
+
+function addAccount() {
+    $('.create-account').show()
+    $('.dask').show()
+}
+
 
 function ToAccountInfo(publickey, balance) {
     var divhtml = ""
@@ -55,7 +61,7 @@ function ToAccountInfo(publickey, balance) {
     divhtml += `<dt><a href="#"><img src="./src/img/ViewonSeelescan.png"></a></dt>`;
     divhtml += `<dd>View On Seelescan</dd>`;
     divhtml += `</dl>`;
-    divhtml += `<dl class="dl_copy" onclick="copyPublicKey(` + publickey + `)">`;
+    divhtml += `<dl class="dl_copy" style="cursor: pointer;" onclick="copy()">`;
     divhtml += `<dt><img src="./src/img/copy.png"></dt>`;
     divhtml += `<dd>Copy Address</dd>`;
     divhtml += `</dl>`;
@@ -66,6 +72,8 @@ function ToAccountInfo(publickey, balance) {
     divhtml += `</div>`;
     divhtml += `<h1 class="note">Note</h1>`;
     divhtml += `<p class="info">Accounts are password protected keys that can hold seele. They can control contracts, but can't display incoming <span>transactions</span>.</p>`;
+    //divhtml += `<span class="publickey" style="display:none">` + publickey + `<span>`
+    // divhtml += `<input id="cptg" style="display: none;" value="` + publickey + `" readonly/>`
     $('#tabs-1').html(divhtml)
 }
 
@@ -93,19 +101,16 @@ function transfer(publickey) {
     $("#txpublicKey").val(publickey)
 }
 
-function copyPublicKey(publickey) {
-    var clipboard = new Clipboard('.publickey', {
-        // 点击copy按钮，直接通过text直接返回复印的内容
-        text: function() {
-            return 'to be or not to be';
-        }
-    });
+function copy() {
+    var copyTextarea = document.querySelector('li.publickey');
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(copyTextarea);
+    selection.removeAllRanges();
+    selection.addRange(range);
 
-    clipboard.on('success', function(e) {
-        console.log(e);
-    });
+    document.execCommand('copy');
 
-    clipboard.on('error', function(e) {
-        console.log(e);
-    });
+    selection.removeAllRanges();
+    layer.msg("复制成功")
 }

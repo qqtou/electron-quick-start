@@ -21,14 +21,37 @@ function addLoadEvent(func) {
         }
     }
 }
-addLoadEvent(loadAccount)
+addLoadEvent(firstLoad)
+
+function firstLoad() {
+    $('#tab ul li:eq(0)').click(function() {
+        loadAccount();
+    });
+    loadAccount();
+}
 
 function loadAccount() {
     seeleClient.accountList();
 
-    layer.load(0, { shade: false });
+    if (seeleClient.accountArray.length > 0) {
+        layer.load(0, { shade: false });
+    }
+
     var count = 0;
-    var accountlist = document.getElementById("accountlist");
+    var tabs1 = document.getElementById("tabs-1");
+    tabs1.innerHTML = "";
+
+    var tabs1HTML = `<h1>Accounts Overview</h1>`
+    tabs1HTML += `<div id="accountlist"></div>`
+    tabs1HTML += `<button class="add-account" onclick="addAccount()">`
+    tabs1HTML += `<span><img src="./src/img/add.png"></span>`
+    tabs1HTML += `<span>ADD ACCOUNT</span>`
+    tabs1HTML += `</button>`
+    tabs1HTML += `<p class="info">Accounts are password protected keys that can hold seele. They can control contracts, but can't display incoming transactions.</p>`
+
+    tabs1.innerHTML = tabs1HTML
+
+
     for (var item in seeleClient.accountArray) {
         seeleClient.getBalance(seeleClient.accountArray[item].trim(), function(err, info) {
             if (err) {
@@ -39,8 +62,9 @@ function loadAccount() {
                     alert(err.message);
                 }
             } else {
+                var accountlist = document.getElementById("accountlist");
                 var accountHTML = ""
-                accountHTML += `<div class="accountFor" onclick="ToAccountInfo('` + String(info.Account) + `',` + info.Balance / 100000000 + `)">`;
+                accountHTML += `<div class="accountFor" onclick="ToAccountInfo('` + info.Account + `',` + info.Balance / 100000000 + `)">`;
                 accountHTML += `<span class="accountImg"><img src="./src/img/Headportrait.png"></span>`;
                 accountHTML += `<ul>`;
                 accountHTML += `<li>Account</li>`;

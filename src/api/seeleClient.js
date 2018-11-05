@@ -18,7 +18,7 @@ function seeleClient() {
     this.binPath = function() {
         var clientpath = `${__dirname}`;
         if (clientpath.indexOf("app.asar") > 0) {
-            return clientpath.substring(0, clientpath.indexOf("app.asar")) + "/../client.exe";
+            return clientpath.substring(0, clientpath.indexOf("app.asar")) + "/../client";
         } else {
             return "./cmd/win32/client"
         }
